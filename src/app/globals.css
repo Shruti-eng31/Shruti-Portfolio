@@ -1,26 +1,157 @@
 @import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
+@custom-variant dark (&:is(.dark *));
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-muted: var(--muted);
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-accent: var(--accent);
+  --color-emerald-500: #10b981;
+  
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-signature: var(--font-caveat), cursive;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  /* Apple Light Mode - Pure White, Pearl, Rose Gold accents */
+  --background: #FFFFFF;
+  --foreground: #1D1D1F;
+  --muted: #86868B;
+  --primary: #000000;
+  --primary-dark: #333336;
+  --accent: #E5D5D0; /* Rose Gold / Pearl feel */
+  
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.9);
+  --glass-panel-bg1: rgba(250, 250, 250, 0.8);
+  --glass-panel-bg2: rgba(245, 245, 247, 0.5);
+  --glass-shadow: rgba(0, 0, 0, 0.05);
+  
+  --text-gradient-start: #1D1D1F;
+  --text-gradient-end: #86868B;
+}
+
+.dark {
+  /* Cyberpunk Dark Mode - Jet Black, Neon Cyan, Electric Blue */
+  --background: #000000;
+  --foreground: #FFFFFF;
+  --muted: #A1A1AA;
+  --primary: #00F0FF; /* Neon Cyan */
+  --primary-dark: #0088FF; /* Electric Blue */
+  --accent: #7000FF; /* Purple Glow */
+
+  --glass-bg: rgba(0, 0, 0, 0.3);
+  --glass-border: rgba(0, 240, 255, 0.15);
+  --glass-panel-bg1: rgba(10, 10, 15, 0.6);
+  --glass-panel-bg2: rgba(0, 0, 5, 0.4);
+  --glass-shadow: rgba(0, 240, 255, 0.1);
+  
+  --text-gradient-start: #FFFFFF;
+  --text-gradient-end: #00F0FF;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hide default cursor on desktop to favor custom cursor */
+@media (min-width: 768px) {
+  body, button, a {
+    cursor: none !important;
+  }
+}
+
+/* Lenis Smooth Scroll CSS */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Custom Scrollbar - Minimal */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--muted);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Utilities */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+}
+
+.glass-panel {
+  background: linear-gradient(145deg, var(--glass-panel-bg1) 0%, var(--glass-panel-bg2) 100%);
+  backdrop-filter: blur(30px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 10px 40px var(--glass-shadow);
+}
+
+.text-gradient {
+  background: linear-gradient(to right, var(--text-gradient-start), var(--text-gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-primary {
+  background: linear-gradient(to right, var(--primary), var(--primary-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glow {
+  box-shadow: 0 0 20px 4px var(--primary);
+}
+
+.glow-text {
+  text-shadow: 0 0 15px var(--primary);
+}
+
+@keyframes blob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+.animate-blob {
+  animation: blob 10s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
 }

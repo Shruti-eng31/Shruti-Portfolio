@@ -57,7 +57,7 @@ function ParticleOrb({ isExploding }: { isExploding: boolean }) {
 
   return (
     <Points ref={pointsRef} positions={positions} stride={3} frustumCulled={false}>
-      <PointMaterial transparent color="#00F0FF" size={0.05} sizeAttenuation={true} depthWrite={false} blending={THREE.AdditiveBlending} />
+      <PointMaterial transparent color="#00FF66" size={0.05} sizeAttenuation={true} depthWrite={false} blending={THREE.AdditiveBlending} />
     </Points>
   );
 }

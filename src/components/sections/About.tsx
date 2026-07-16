@@ -121,7 +121,7 @@ export function About() {
             transition={{ delay: 1 }}
             className="mt-12"
           >
-            <a href="mailto:professionalshrutisingh@gmail.com" className="magnetic inline-flex items-center gap-4 px-8 py-4 rounded-full glass border border-foreground/20 hover:bg-foreground/10 transition-colors group">
+            <a href="mailto:shrutitechcse@gmail.com" className="magnetic inline-flex items-center gap-4 px-8 py-4 rounded-full glass border border-foreground/20 hover:bg-foreground/10 transition-colors group">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse shadow-[0_0_10px_var(--primary)]"></span>
               <span className="font-mono text-sm tracking-widest text-foreground uppercase group-hover:text-primary transition-colors">Initialize Connection</span>
             </a>

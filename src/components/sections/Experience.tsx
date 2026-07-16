@@ -16,8 +16,8 @@ const experiences = [
       "Developed interactive dashboards for predictive analytics.",
       "Implemented A/B testing frameworks for feature rollout."
     ],
-    icon: <BrainCircuit className="text-[#00F0FF]" size={24} />,
-    color: "#00F0FF"
+    icon: <BrainCircuit className="text-[#00FF66]" size={24} />,
+    color: "#00FF66"
   },
   {
     id: 2,
@@ -65,7 +65,7 @@ function TerminalCard({ exp, index }: { exp: typeof experiences[0], index: numbe
         <div className="bg-black/80 px-4 py-3 border-b border-white/10 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="flex gap-1.5">
-              <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
+              <div className="w-3 h-3 rounded-full bg-purple-500/80"></div>
               <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
               <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
             </div>

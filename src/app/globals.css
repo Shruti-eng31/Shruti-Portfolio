@@ -38,18 +38,18 @@
   --background: #000000;
   --foreground: #FFFFFF;
   --muted: #A1A1AA;
-  --primary: #00F0FF; /* Neon Cyan */
-  --primary-dark: #0088FF; /* Electric Blue */
-  --accent: #7000FF; /* Purple Glow */
+  --primary: #00FF66; /* Neon Green */
+  --primary-dark: #00AA33; /* Emerald Green */
+  --accent: #00FFCC; /* Cyan-Green Glow */
 
   --glass-bg: rgba(0, 0, 0, 0.3);
-  --glass-border: rgba(0, 240, 255, 0.15);
+  --glass-border: rgba(0, 255, 102, 0.15);
   --glass-panel-bg1: rgba(10, 10, 15, 0.6);
   --glass-panel-bg2: rgba(0, 0, 5, 0.4);
-  --glass-shadow: rgba(0, 240, 255, 0.1);
+  --glass-shadow: rgba(0, 255, 102, 0.1);
   
   --text-gradient-start: #FFFFFF;
-  --text-gradient-end: #00F0FF;
+  --text-gradient-end: #00FF66;
 }
 
 body {

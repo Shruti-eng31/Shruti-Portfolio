@@ -42,7 +42,7 @@ export function Contact() {
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#00F0FF" strokeWidth="0.5" opacity="0.5"/>
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#00FF66" strokeWidth="0.5" opacity="0.5"/>
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#grid)" />
@@ -104,8 +104,8 @@ export function Contact() {
                   <Mail className="text-[#7000FF]" size={20} />
                   <h4 className="font-mono text-sm tracking-widest text-gray-400 uppercase">Comm Link</h4>
                 </div>
-                <a href="mailto:professionalshrutisingh@gmail.com" className="text-lg md:text-xl font-bold text-white pl-9 hover:text-primary transition-colors truncate block">
-                  professionalshrutisingh@gmail.com
+                <a href="mailto:shrutitechcse@gmail.com" className="text-xs sm:text-sm md:text-base lg:text-lg font-bold text-white pl-9 hover:text-primary transition-colors whitespace-nowrap block">
+                  shrutitechcse@gmail.com
                 </a>
               </motion.div>
 

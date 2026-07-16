@@ -53,12 +53,8 @@ export function Navbar() {
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    const previous = scrollY.getPrevious() ?? 0;
-    if (latest > previous && latest > 150) {
-      setHidden(true);
-    } else {
-      setHidden(false);
-    }
+    // Keep the navbar permanently visible while scrolling
+    setHidden(false);
     setIsScrolled(latest > 50);
   });
 
@@ -116,15 +112,15 @@ export function Navbar() {
           </AnimatePresence>
 
           {/* Logo */}
-          <a href="#" className="magnetic text-2xl font-heading font-black tracking-tighter flex items-center gap-2 group z-10">
+          <a href="#" className="magnetic text-2xl font-sans font-bold tracking-tight flex items-center gap-2 group z-10">
             <motion.div 
-              whileHover={{ rotate: 90, scale: 1.1 }}
+              whileHover={{ scale: 1.1, rotate: 10 }}
               transition={{ type: "spring", stiffness: 200, damping: 10 }}
-              className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-background shadow-[0_0_15px_var(--primary)]"
+              className="w-12 h-12 flex items-center justify-center drop-shadow-[0_0_15px_var(--primary)]"
             >
-              S
+              <img src="/logo.png" alt="Logo" className="w-full h-full object-contain scale-[1.4]" />
             </motion.div>
-            <span className="text-foreground relative overflow-hidden flex items-center">
+            <span className="text-foreground relative overflow-hidden flex items-center ml-1">
               Shruti<span className="text-primary animate-pulse">.</span>
             </span>
           </a>
@@ -148,7 +144,7 @@ export function Navbar() {
               className="magnetic hidden md:flex relative overflow-hidden items-center justify-center px-6 py-2 text-sm font-bold rounded-full bg-primary text-background group shadow-[0_0_15px_var(--primary)]"
             >
               <span className="absolute inset-0 bg-white/30 translate-y-[100%] group-hover:translate-y-[0%] transition-transform duration-300 ease-out rounded-full"></span>
-              <span className="relative z-10 mix-blend-difference text-white">Resume</span>
+              <span className="relative z-10 text-black">Resume</span>
             </a>
             
             <button

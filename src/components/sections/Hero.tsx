@@ -28,7 +28,7 @@ function FloatingBlobs() {
       <Float speed={2} rotationIntensity={1} floatIntensity={2} floatingRange={[-1, 1]}>
         <mesh ref={meshRef1} position={[-4, 1, -5]} scale={1.5}>
           <sphereGeometry args={[1, 64, 64]} />
-          <MeshDistortMaterial color="#00F0FF" envMapIntensity={1} clearcoat={1} clearcoatRoughness={0.1} metalness={0.8} roughness={0.2} distort={0.4} speed={2} />
+          <MeshDistortMaterial color="#00FF66" envMapIntensity={1} clearcoat={1} clearcoatRoughness={0.1} metalness={0.8} roughness={0.2} distort={0.4} speed={2} />
         </mesh>
       </Float>
 
@@ -42,7 +42,7 @@ function FloatingBlobs() {
       <Float speed={1.5} rotationIntensity={1.5} floatIntensity={1.5} floatingRange={[-1, 1]}>
         <mesh ref={meshRef3} position={[0, -4, -4]} scale={1.2}>
           <icosahedronGeometry args={[1, 0]} />
-          <MeshDistortMaterial color="#0088FF" envMapIntensity={1} clearcoat={1} clearcoatRoughness={0.1} metalness={0.8} roughness={0.2} distort={0.3} speed={1} />
+          <MeshDistortMaterial color="#00AA33" envMapIntensity={1} clearcoat={1} clearcoatRoughness={0.1} metalness={0.8} roughness={0.2} distort={0.3} speed={1} />
         </mesh>
       </Float>
     </>
@@ -123,7 +123,7 @@ export function Hero() {
           <a href="#projects" className="magnetic group relative inline-flex items-center justify-center px-8 py-4 font-bold text-black bg-primary rounded-full overflow-hidden transition-all hover:scale-110 shadow-[0_0_20px_var(--primary)] hover:shadow-[0_0_40px_var(--primary)]">
             {/* Liquid effect overlay */}
             <span className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></span>
-            <span className="relative flex items-center gap-2 mix-blend-difference text-white">
+            <span className="relative flex items-center gap-2 text-black">
               Explore Portfolio <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform duration-300" />
             </span>
           </a>

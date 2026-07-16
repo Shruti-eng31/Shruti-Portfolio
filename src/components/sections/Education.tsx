@@ -15,18 +15,18 @@ export function Education() {
   const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 0.8]);
 
   const coursework = [
-    "Artificial Intelligence", "Data Science", "Software Engineering", 
+    "Artificial Intelligence", "Data Science", "Software Engineering",
     "DBMS", "Operating Systems", "Computer Networks", "DSA"
   ];
 
   return (
     <section id="education" ref={containerRef} className="py-32 w-full relative z-10 bg-[#050505] overflow-hidden flex flex-col items-center justify-center min-h-[80vh]">
-      
+
       {/* Dynamic Grid Background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,240,255,0.1)_0%,transparent_70%)] pointer-events-none" />
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col items-center">
-        
+
         <motion.div
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -49,7 +49,7 @@ export function Education() {
           >
             {/* Inner Border */}
             <div className="relative w-full h-full border border-white/10 rounded-xl p-8 md:p-12 overflow-hidden bg-black/40">
-              
+
               {/* Holographic Watermark */}
               <div className="absolute -right-20 -bottom-20 opacity-5 pointer-events-none">
                 <GraduationCap size={400} />
@@ -62,20 +62,29 @@ export function Education() {
               <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-primary rounded-br-xl" />
 
               <div className="flex flex-col md:flex-row gap-10 items-start relative z-10">
-                {/* University Emblem Placeholder */}
-                <div className="w-32 h-32 rounded-2xl bg-gradient-to-br from-primary/30 to-primary-dark/10 border border-primary/40 flex flex-shrink-0 items-center justify-center text-primary shadow-[0_0_30px_rgba(0,240,255,0.3)] relative">
-                  <div className="absolute inset-2 border border-primary/20 rounded-xl" />
-                  <GraduationCap size={64} className="drop-shadow-[0_0_10px_rgba(0,240,255,1)]" />
+                {/* University Emblem */}
+                <div className="w-32 h-32 rounded-2xl bg-gradient-to-br from-primary/30 to-primary-dark/10 border border-primary/40 flex flex-shrink-0 items-center justify-center shadow-[0_0_30px_rgba(0,255,102,0.3)] relative overflow-hidden">
+                  <div className="absolute inset-2 border border-primary/20 rounded-xl z-0" />
+                  <img 
+                    src="/bennett.png" 
+                    alt="Bennett University Logo" 
+                    className="w-24 h-24 object-contain z-10 drop-shadow-[0_0_15px_rgba(0,255,102,0.8)]" 
+                  />
                 </div>
-                
+
                 <div className="flex-1">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-mono text-xs mb-4">
-                    STATUS: COMPLETED
+                  <div className="flex flex-wrap items-center gap-3 mb-4">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-mono text-xs">
+                      STATUS: ON-GOING
+                    </div>
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white font-mono text-xs">
+                      CGPA: 9.75
+                    </div>
                   </div>
-                  
+
                   <h3 className="text-4xl md:text-5xl font-heading font-black text-white mb-2 tracking-tight">Bennett University</h3>
                   <p className="text-xl text-gray-400 font-medium mb-8 font-mono">Bachelor of Technology in Computer Science and Engineering</p>
-                  
+
                   <div className="space-y-4">
                     <div className="flex items-center gap-2 text-white font-bold mb-4 uppercase tracking-widest text-sm">
                       <BookOpen size={18} className="text-primary" /> Key Directives (Coursework)
@@ -96,7 +105,7 @@ export function Education() {
             </div>
           </motion.div>
         </div>
-        
+
       </div>
     </section>
   );

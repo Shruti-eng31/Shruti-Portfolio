@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls, Html, Stars, Float } from "@react-three/drei";
 import * as THREE from "three";
 
@@ -77,8 +77,15 @@ function TextRing() {
 }
 
 function HolographicCircleScene() {
+  const { viewport } = useThree();
+  const scale = Math.min(1, viewport.width / 15); // Scale down on mobile to fit the ring
+  
+  // Use a simple check for mobile to disable OrbitControls entirely on small screens
+  // This prevents OrbitControls from attaching touch listeners that hijack vertical scrolling
+  const isDesktop = typeof window !== "undefined" ? window.innerWidth > 768 : true;
+
   return (
-    <>
+    <group scale={scale}>
       <ambientLight intensity={0.2} />
       <Stars radius={100} depth={50} count={3000} factor={4} saturation={0} fade speed={1} />
       
@@ -95,15 +102,18 @@ function HolographicCircleScene() {
 
       <TextRing />
       
-      <OrbitControls 
-        enableZoom={false} 
-        enablePan={false} 
-        autoRotate 
-        autoRotateSpeed={0.5} 
-        maxPolarAngle={Math.PI / 1.5}
-        minPolarAngle={Math.PI / 3}
-      />
-    </>
+      {isDesktop && (
+        <OrbitControls 
+          enableZoom={false} 
+          enablePan={false} 
+          enableRotate={true}
+          autoRotate 
+          autoRotateSpeed={0.5} 
+          maxPolarAngle={Math.PI / 1.5}
+          minPolarAngle={Math.PI / 3}
+        />
+      )}
+    </group>
   );
 }
 
@@ -112,7 +122,7 @@ export function Skills() {
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
   return (
-    <section id="skills" ref={containerRef} className="relative w-full h-[120vh] bg-black overflow-hidden flex flex-col items-center justify-center py-20">
+    <section id="skills" ref={containerRef} className="relative w-full min-h-[100svh] md:h-[120vh] bg-black overflow-hidden flex flex-col items-center justify-center py-20">
       
       {/* Title */}
       <motion.div
@@ -125,14 +135,18 @@ export function Skills() {
         <h3 className="text-5xl md:text-7xl font-heading font-black text-white drop-shadow-md">
           The <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00FF66] to-[#00AA33]">Ecosystem</span>
         </h3>
-        <p className="mt-4 text-muted max-w-xl mx-auto text-sm md:text-base">
+        <p className="mt-4 text-muted max-w-xl mx-auto text-sm md:text-base hidden md:block">
           Interact with the holographic ring. Rotate the circle to explore my capabilities.
         </p>
       </motion.div>
 
       {/* 3D Canvas */}
       <div className="absolute inset-0 z-0">
-        <Canvas camera={{ position: [0, 5, 16], fov: 45 }}>
+        <Canvas 
+          camera={{ position: [0, 5, 16], fov: 45 }}
+          style={{ touchAction: 'auto' }}
+          className="pointer-events-auto"
+        >
           <HolographicCircleScene />
         </Canvas>
       </div>

@@ -2,23 +2,14 @@
 
 import { motion } from "framer-motion";
 import { ChevronLeft } from "lucide-react";
-import { ProjectDataPad, ProjectType } from "../../components/sections/Projects";
-import { Library3D } from "../../components/3d/Library3D";
-import { Hospital3D } from "../../components/3d/Hospital3D";
-import { Eda3D } from "../../components/3d/Eda3D";
-import { Aether3D } from "../../components/3d/Aether3D";
-import { Cosmos3D } from "../../components/3d/Cosmos3D";
+import { ProjectDataPad, ProjectType } from "../../../components/sections/Projects";
+import { Library3D } from "../../../components/3d/Library3D";
+import { Hospital3D } from "../../../components/3d/Hospital3D";
+import { Aether3D } from "../../../components/3d/Aether3D";
+import { Cosmos3D } from "../../../components/3d/Cosmos3D";
+import { Eda3D } from "../../../components/3d/Eda3D";
 
-const allProjects: ProjectType[] = [
-  {
-    id: "EDA-01",
-    title: "Advanced EDA & Feature Engineering",
-    tech: ["Python", "Pandas", "Jupyter", "Scikit-Learn"],
-    description: "An advanced Exploratory Data Analysis (EDA) and Feature Engineering project. It involves deep data analysis, preprocessing, and extracting meaningful features for machine learning pipelines.",
-    github: "https://github.com/Shruti-eng31/advanced-eda-feature-engineering",
-    demo: "",
-    status: "ACTIVE"
-  },
+const fullStackProjects: ProjectType[] = [
   {
     id: "AEX-02",
     title: "Aether-X",
@@ -26,6 +17,15 @@ const allProjects: ProjectType[] = [
     description: "A cutting-edge software solution designed to solve complex problems with modern technologies. Built with performance and scalability in mind.",
     github: "https://github.com/Shruti-eng31/Aether-X",
     demo: "https://shrutisingh-aether-x-olive.vercel.app/",
+    status: "ACTIVE"
+  },
+  {
+    id: "EDA-01",
+    title: "Advanced EDA & Feature Engineering",
+    tech: ["Python", "Pandas", "Jupyter", "Scikit-Learn"],
+    description: "An advanced Exploratory Data Analysis (EDA) and Feature Engineering project. It involves deep data analysis, preprocessing, and extracting meaningful features for machine learning pipelines.",
+    github: "https://github.com/Shruti-eng31/advanced-eda-feature-engineering",
+    demo: "",
     status: "ACTIVE"
   },
   {
@@ -57,7 +57,7 @@ const allProjects: ProjectType[] = [
   }
 ];
 
-export default function ProjectsPage() {
+export default function FullStackProjectsPage() {
   return (
     <main className="min-h-screen bg-[#050505] text-white py-32 relative overflow-hidden">
       {/* Background Matrix-like lines */}
@@ -78,10 +78,10 @@ export default function ProjectsPage() {
             Expanded Archive
           </div>
           <h1 className="text-5xl md:text-7xl font-heading font-black mb-6">
-            All <span className="text-primary">Projects</span>
+            Full-Stack <span className="text-primary">Projects</span>
           </h1>
           <p className="text-xl text-muted max-w-2xl mx-auto font-mono">
-            A comprehensive list of all projects, tools, and algorithms. Add your new projects down below.
+            A comprehensive list of full-stack web applications, tools, and platforms. Add your new full-stack projects down below.
           </p>
         </motion.div>
 
@@ -91,7 +91,7 @@ export default function ProjectsPage() {
           {/* Connecting Line (Optional background element) */}
           <div className="absolute left-[50%] top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-primary/20 to-transparent hidden md:block -translate-x-1/2 pointer-events-none" />
 
-          {allProjects.map((project, index) => {
+          {fullStackProjects.map((project, index) => {
             const isEven = index % 2 === 0;
             return (
               <div 
@@ -112,9 +112,9 @@ export default function ProjectsPage() {
                 >
                   {project.id === 'LMS-01' && <Library3D />}
                   {project.id === 'HMS-02' && <Hospital3D />}
-                  {project.id === 'EDA-01' && <Eda3D />}
                   {project.id === 'AEX-02' && <Aether3D />}
                   {project.id === 'COS-03' && <Cosmos3D />}
+                  {project.id === 'EDA-01' && <Eda3D />}
                 </div>
               </div>
             );

@@ -2,62 +2,32 @@
 
 import { motion } from "framer-motion";
 import { ChevronLeft } from "lucide-react";
-import { ProjectDataPad, ProjectType } from "../../components/sections/Projects";
-import { Library3D } from "../../components/3d/Library3D";
-import { Hospital3D } from "../../components/3d/Hospital3D";
-import { Eda3D } from "../../components/3d/Eda3D";
-import { Aether3D } from "../../components/3d/Aether3D";
-import { Cosmos3D } from "../../components/3d/Cosmos3D";
+import { ProjectDataPad, ProjectType } from "../../../components/sections/Projects";
+import { Netflix3D } from "../../../components/3d/Netflix3D";
+import { Customer3D } from "../../../components/3d/Customer3D";
 
-const allProjects: ProjectType[] = [
+const dataScienceProjectsList: ProjectType[] = [
   {
-    id: "EDA-01",
-    title: "Advanced EDA & Feature Engineering",
-    tech: ["Python", "Pandas", "Jupyter", "Scikit-Learn"],
-    description: "An advanced Exploratory Data Analysis (EDA) and Feature Engineering project. It involves deep data analysis, preprocessing, and extracting meaningful features for machine learning pipelines.",
-    github: "https://github.com/Shruti-eng31/advanced-eda-feature-engineering",
-    demo: "",
+    id: "DS-02",
+    title: "Netflix Data Analysis & Dashboard",
+    tech: ["Python", "Pandas", "Scikit-Learn", "Streamlit"],
+    description: "An end-to-end Data Science and Business Intelligence portfolio project analyzing the global Netflix catalog, featuring a recommendation engine and interactive dashboard.",
+    github: "https://github.com/Shruti-eng31/Netflix-Data-Analysis",
+    demo: "https://netflix-data-analysis-eqbwfrjetdrtqyumkarqna.streamlit.app/",
     status: "ACTIVE"
   },
   {
-    id: "AEX-02",
-    title: "Aether-X",
-    tech: ["React", "TypeScript", "Node.js"],
-    description: "A cutting-edge software solution designed to solve complex problems with modern technologies. Built with performance and scalability in mind.",
-    github: "https://github.com/Shruti-eng31/Aether-X",
-    demo: "https://shrutisingh-aether-x-olive.vercel.app/",
+    id: "DS-03",
+    title: "Customer Churn Analysis & Prediction",
+    tech: ["Python", "Streamlit", "Scikit-Learn", "XGBoost"],
+    description: "An end-to-end Data Science portfolio project that simulates a real-world enterprise analytics platform. Designed to analyze customer behavior, identify churn patterns, and predict customer churn using Machine Learning.",
+    github: "https://github.com/Shruti-eng31/Customer-Churn-Analysis",
+    demo: "https://customer-churn-analysis-rpejbsauh6rfrxfejsypzh.streamlit.app/",
     status: "ACTIVE"
-  },
-  {
-    id: "COS-03",
-    title: "Cosmos Explorer",
-    tech: ["React", "Next.js"],
-    description: "A web application to explore space data, celestial bodies, and cosmic events, powered by modern web technologies.",
-    github: "https://github.com/Shruti-eng31/cosmos-explorer",
-    demo: "",
-    status: "ACTIVE"
-  },
-  {
-    id: "LMS-01",
-    title: "Library Management System",
-    tech: ["Java", "Spring Boot", "MySQL"],
-    description: "A comprehensive library management system for tracking books, members, and issuing records with a modern backend architecture.",
-    github: "https://github.com/Shruti-eng31/LMS",
-    demo: "",
-    status: "ARCHIVED"
-  },
-  {
-    id: "HMS-02",
-    title: "Hospital Management System",
-    tech: ["Python", "Django", "PostgreSQL"],
-    description: "An integrated healthcare solution managing patient records, appointments, and billing with role-based access control.",
-    github: "https://github.com/Shruti-eng31/HMS",
-    demo: "",
-    status: "ARCHIVED"
   }
 ];
 
-export default function ProjectsPage() {
+export default function DataScienceProjectsPage() {
   return (
     <main className="min-h-screen bg-[#050505] text-white py-32 relative overflow-hidden">
       {/* Background Matrix-like lines */}
@@ -78,10 +48,10 @@ export default function ProjectsPage() {
             Expanded Archive
           </div>
           <h1 className="text-5xl md:text-7xl font-heading font-black mb-6">
-            All <span className="text-primary">Projects</span>
+            Data Science <span className="text-primary">Projects</span>
           </h1>
           <p className="text-xl text-muted max-w-2xl mx-auto font-mono">
-            A comprehensive list of all projects, tools, and algorithms. Add your new projects down below.
+            A comprehensive list of Data Science, Machine Learning, and Analytics projects. Add your new data science projects down below.
           </p>
         </motion.div>
 
@@ -91,7 +61,7 @@ export default function ProjectsPage() {
           {/* Connecting Line (Optional background element) */}
           <div className="absolute left-[50%] top-0 bottom-0 w-[1px] bg-gradient-to-b from-transparent via-primary/20 to-transparent hidden md:block -translate-x-1/2 pointer-events-none" />
 
-          {allProjects.map((project, index) => {
+          {dataScienceProjectsList.map((project, index) => {
             const isEven = index % 2 === 0;
             return (
               <div 
@@ -110,11 +80,8 @@ export default function ProjectsPage() {
                 <div 
                   className={`hidden md:flex absolute top-0 bottom-0 w-[45%] items-center justify-center z-0 ${isEven ? 'right-0' : 'left-0'}`}
                 >
-                  {project.id === 'LMS-01' && <Library3D />}
-                  {project.id === 'HMS-02' && <Hospital3D />}
-                  {project.id === 'EDA-01' && <Eda3D />}
-                  {project.id === 'AEX-02' && <Aether3D />}
-                  {project.id === 'COS-03' && <Cosmos3D />}
+                  {project.id === 'DS-02' && <Netflix3D />}
+                  {project.id === 'DS-03' && <Customer3D />}
                 </div>
               </div>
             );

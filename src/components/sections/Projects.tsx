@@ -6,28 +6,51 @@ import { ExternalLink, FolderGit2, ShieldAlert, ChevronRight } from "lucide-reac
 import { FaGithub } from "react-icons/fa";
 import { Library3D } from "../3d/Library3D";
 import { Hospital3D } from "../3d/Hospital3D";
+import { Cosmos3D } from "../3d/Cosmos3D";
+import { Aether3D } from "../3d/Aether3D";
+import { Eda3D } from "../3d/Eda3D";
 
-const projects = [
+export type ProjectType = {
+  id: string;
+  title: string;
+  tech: string[];
+  description: string;
+  github: string;
+  demo: string;
+  status: string;
+};
+
+export const projects: ProjectType[] = [
   {
-    id: "LMS-01",
-    title: "Library Management System",
-    tech: ["Python"],
-    description: "Developed a Library Management System to automate catalog management, issue-return tracking, member management, CRUD operations, inventory monitoring, and search functionality.",
-    github: "https://github.com/Shruti-eng31/Library-Management-System",
-    demo: "#",
-    status: "ARCHIVED"
+    id: "COS-03",
+    title: "Cosmos Explorer",
+    tech: ["React", "Next.js"],
+    description: "A web application to explore space data, celestial bodies, and cosmic events, powered by modern web technologies.",
+    github: "https://github.com/Shruti-eng31/cosmos-explorer",
+    demo: "",
+    status: "ACTIVE"
   },
   {
-    id: "HMS-02",
-    title: "Hospital Management System",
-    tech: ["C#", ".NET", "SQL Server"],
-    description: "Developed a desktop application for managing patient records, doctor information, appointments, billing, authentication, SQL Server integration, CRUD operations, and efficient hospital administration.",
-    github: "#",
+    id: "AEX-02",
+    title: "Aether-X",
+    tech: ["React", "TypeScript", "Node.js"],
+    description: "A cutting-edge software solution designed to solve complex problems with modern technologies. Built with performance and scalability in mind.",
+    github: "https://github.com/Shruti-eng31/Aether-X",
+    demo: "https://shrutisingh-aether-x-olive.vercel.app/",
+    status: "ACTIVE"
+  },
+  {
+    id: "EDA-01",
+    title: "Advanced EDA & Feature Engineering",
+    tech: ["Python", "Pandas", "Jupyter", "Scikit-Learn"],
+    description: "An advanced Exploratory Data Analysis (EDA) and Feature Engineering project. It involves deep data analysis, preprocessing, and extracting meaningful features for machine learning pipelines.",
+    github: "https://github.com/Shruti-eng31/advanced-eda-feature-engineering",
+    demo: "",
     status: "ACTIVE"
   }
 ];
 
-function ProjectDataPad({ project, index }: { project: typeof projects[0], index: number }) {
+export function ProjectDataPad({ project, index }: { project: ProjectType, index: number }) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -127,7 +150,7 @@ export function Projects() {
             Classified Files
           </div>
           <h2 className="text-5xl md:text-7xl font-heading font-black mb-4">
-            Project <span className="text-gradient-primary">Archive</span>
+            Full-Stack <span className="text-gradient-primary">Projects</span>
           </h2>
         </motion.div>
 
@@ -158,6 +181,9 @@ export function Projects() {
                 >
                   {project.id === 'LMS-01' && <Library3D />}
                   {project.id === 'HMS-02' && <Hospital3D />}
+                  {project.id === 'COS-03' && <Cosmos3D />}
+                  {project.id === 'AEX-02' && <Aether3D />}
+                  {project.id === 'EDA-01' && <Eda3D />}
                 </div>
               </div>
             );
@@ -170,7 +196,7 @@ export function Projects() {
           viewport={{ once: true }}
           className="flex justify-center mt-12"
         >
-          <a href="/projects" className="magnetic group relative inline-flex items-center justify-center px-8 py-4 font-bold text-primary rounded-full border border-primary/50 bg-primary/10 hover:bg-primary hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(0,255,102,0.2)] hover:shadow-[0_0_30px_rgba(0,255,102,0.6)]">
+          <a href="/projects/full-stack" className="magnetic group relative inline-flex items-center justify-center px-8 py-4 font-bold text-primary rounded-full border border-primary/50 bg-primary/10 hover:bg-primary hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(0,255,102,0.2)] hover:shadow-[0_0_30px_rgba(0,255,102,0.6)]">
             Watch More
             <ChevronRight className="ml-2 group-hover:translate-x-1 transition-transform" />
           </a>
